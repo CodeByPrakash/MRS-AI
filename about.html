@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Medical Health Center</title>
+  <!-- Link to Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <style>
+    /* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(to bottom, #e3f2fd, #f9f9f9);
+}
+
+/* Header */
+header {
+  background: linear-gradient(to right, #4caf50, #81c784);
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  font-size: 2.8rem;
+  margin: 0;
+  animation: fadeIn 2s;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* Sections */
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 30px;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideIn 1.5s forwards;
+}
+
+h2 {
+  color: #4caf50;
+  margin-top: 0;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-section:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+.animated-section:nth-child(even) {
+  animation-delay: 0.4s;
+}
+
+  </style>
+  <header>
+    <h1><i class="fas fa-heartbeat"></i> Medical Health Center</h1>
+    <p>Where health meets technology for a brighter, healthier future</p>
+  </header>
+  <main>
+    <section id="vision" class="animated-section">
+      <h2><i class="fas fa-eye"></i> Our Vision</h2>
+      <p>We dream of a world where healthcare information is accessible to everyone—a world where understanding and managing your health is a right, not a privilege. This platform is a realization of that dream, designed to empower individuals with the knowledge they need to take charge of their well-being.</p>
+    </section>
+    <section id="who-we-are" class="animated-section">
+      <h2><i class="fas fa-users"></i> Who We Are</h2>
+      <p>We are a dynamic team of healthcare professionals, data scientists, and technology enthusiasts united by a shared mission: to make healthcare more accessible, comprehensible, and personalized. With years of experience spanning medicine and advanced technology, our passion fuels every step of this journey to serve you better.</p>
+    </section>
+    <section id="mission" class="animated-section">
+      <h2><i class="fas fa-bullseye"></i> Our Mission</h2>
+      <p>Our mission is to bridge the gap between technology and healthcare. Through this platform, we strive to:</p>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Help users identify potential health concerns based on their symptoms.</li>
+        <li><i class="fas fa-check-circle"></i> Offer educational resources to enhance health awareness and literacy.</li>
+        <li><i class="fas fa-check-circle"></i> Use cutting-edge AI and machine learning to provide intuitive, user-friendly solutions for health management.</li>
+      </ul>
+    </section>
+    <section id="how-we-do-it" class="animated-section">
+      <h2><i class="fas fa-cogs"></i> How We Do It</h2>
+      <p>Our system is powered by a sophisticated <strong>Machine Learning model</strong> trained on an extensive dataset of symptoms and diseases. Leveraging supervised learning techniques, like Support Vector Classifier (SVC), our platform delivers accurate and personalized health insights. By entering your symptoms, you'll receive potential diagnoses along with actionable advice, making health decisions simpler and more informed.</p>
+    </section>
+    <section id="priority" class="animated-section">
+      <h2><i class="fas fa-hand-holding-heart"></i> Your Well-being, Our Priority</h2>
+      <p>We know healthcare can feel overwhelming. That’s why our platform provides not just predictions but also actionable insights:</p>
+      <ul>
+        <li><i class="fas fa-stethoscope"></i> <strong>Disease descriptions:</strong> for a better understanding.</li>
+        <li><i class="fas fa-pills"></i> <strong>Medication recommendations:</strong> tailored to your symptoms.</li>
+        <li><i class="fas fa-apple-alt"></i> <strong>Dietary and workout tips:</strong> to enhance your recovery.</li>
+        <li><i class="fas fa-shield-alt"></i> <strong>Precautionary measures:</strong> to help you stay proactive about your health.</li>
+      </ul>
+    </section>
+    <section id="join-us" class="animated-section">
+      <h2><i class="fas fa-hands-helping"></i> Join Us on this Journey</h2>
+      <p>Explore. Learn. Take charge of your health. Our platform is designed to make every step of your health journey informed and empowering. Together, let’s create a future where healthcare information is simple, accessible, and impactful.</p>
+      <p><strong>Thank you for trusting Medical Health Center as your partner in health. Here's to a brighter, healthier tomorrow!</strong></p>
+    </section>
+  </main>
+  <footer>
+    <p>© 2024 Medical Health Center. All rights reserved.</p>
+  </footer>
+</body>
+</html>

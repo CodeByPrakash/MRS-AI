@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet the Developer - Om Prakash Behera</title>
+  <!-- Link to Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <style>
+    /* Eco-Friendly Colors */
+:root {
+  --primary-green: #4caf50;
+  --light-green: #81c784;
+  --earth-brown: #8d6e63;
+  --soft-beige: #f9f5f0;
+  --white: #ffffff;
+  --dark-green: #2e7d32;
+}
+
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(to bottom, var(--soft-beige), var(--light-green));
+}
+
+/* Header */
+.eco-header {
+  background: linear-gradient(to right, var(--primary-green), var(--light-green));
+  color: var(--white);
+  text-align: center;
+  padding: 30px 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.eco-header h1 {
+  font-size: 2.8rem;
+  margin: 0;
+  font-family: 'Georgia', serif;
+}
+
+.eco-header p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* Sections */
+.eco-section {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 800px;
+  background: var(--white);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid var(--primary-green);
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideIn 1.5s forwards;
+}
+
+/* Icons and Lists */
+h2 {
+  color: var(--dark-green);
+  font-family: 'Georgia', serif;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+ul li i {
+  margin-right: 10px;
+  color: var(--primary-green);
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-section:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+.animated-section:nth-child(even) {
+  animation-delay: 0.4s;
+}
+
+/* Footer */
+.eco-footer {
+  background: var(--earth-brown);
+  color: var(--white);
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 30px;
+  font-size: 0.9rem;
+}
+
+  </style>
+  <header class="eco-header">
+    <h1><i class="fas fa-code"></i> Meet the Developer</h1>
+    <p>Introducing <a href="https://omprakashcse.vercel.app/" style="text-decoration: none; color: #00ffaa;">Om Prakash Behera</a> - Your AI & ML Engineer</p>
+  </header>
+  <main>
+    <section id="about-me" class="eco-section animated-section">
+      <h2><i class="fas fa-user"></i> About Om Prakash</h2>
+      <p>Hello, I'm Om Prakash Behera, your AI and Machine Learning Engineer with over 5 years of experience. I am passionate about harnessing the power of technology to make a positive impact on people's lives. Let me share a bit about my journey in AI and ML.</p>
+    </section>
+    <section id="my-expertise" class="eco-section animated-section">
+      <h2><i class="fas fa-cogs"></i> My Expertise</h2>
+      <p>With a strong academic background in computer science and a deep fascination for AI and ML, I've collaborated on innovative international projects that push the boundaries of AI and Machine Learning.</p>
+    </section>
+    <section id="commitment" class="eco-section animated-section">
+      <h2><i class="fas fa-trophy"></i> A Commitment to Excellence</h2>
+      <p>Driven by a belief that technology should be accessible to all, I focus on creating intelligent algorithms, predictive models, and user-friendly interfaces. My solutions are both cutting-edge and user-centric.</p>
+    </section>
+    <section id="health-tech" class="eco-section animated-section">
+      <h2><i class="fas fa-heartbeat"></i> Passion for Health Tech</h2>
+      <p>The development of aibasedhealthcare is a perfect blend of my passion for AI and my dedication to improving healthcare accessibility. I firmly believe AI can transform healthcare by making it more personalized and informative.</p>
+    </section>
+    <section id="join-me" class="eco-section animated-section">
+      <h2><i class="fas fa-handshake"></i> Join Me on this Journey</h2>
+      <p>Explore aibasedhealthcare to experience firsthand how AI can revolutionize healthcare. Together, we can empower individuals with knowledge and contribute to a healthier, brighter future.</p>
+    </section>
+  </main>
+  <footer class="eco-footer">
+    <p>© 2024 Om Prakash Behera. Empowering technology for a healthier future.</p>
+  </footer>
+</body>
+</html>

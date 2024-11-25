@@ -1,0 +1,17 @@
+
+.theme-switch
+{
+    text-align: center;
+    color: #00cc5c;
+    margin: 0 10px 0 10px;
+    border-radius: 20px;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+.theme-switch i
+{
+    padding: 12px 10px;
+    text-rendering: auto;
+}
+
