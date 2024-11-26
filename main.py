@@ -1,9 +1,8 @@
-from flask import Flask, request, render_template, jsonify  # Import jsonify
+from flask import Flask, request, render_template, jsonify, request  # Import jsonify
 import numpy as np
 import pandas as pd
 import pickle
 from sklearn.svm import SVC  # Importing Support Vector Classifier from sklearn
-
 
 # flask app
 app = Flask(__name__, template_folder='.', static_folder='static') 
@@ -114,6 +113,17 @@ def developer():
 def blog():
     return render_template("blog.html")
 
+@app.route("/", methods=["GET", "POST"])
+def chat():
+    if request.method == 'POST':
+        prompt = request.form['prompt']
+        response = client.predict(
+            endpoint='YOUR_ENDPOINT_NAME',
+            instances=[{'text': prompt}]
+        )
+        return render_template('index.html', response=response.predictions[0]['text'])
+    else:
+        return render_template('index.html')
 
 if __name__ == '__main__':
 
