@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AI-based Health Care System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+        /* Resetting margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: #4caf50; /* Dark blue */
+    color: #fff;
+    animation: fadeIn 2s ease-in-out;
+}
+
+header h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #ddd;
+}
+
+/* Project Information Section */
+.project-info {
+    background-color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.project-info h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.project-info p {
+    font-size: 1.1em;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Team Section */
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+}
+
+.team h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+/* Team Member Card Styles */
+.team-member {
+    background: #fff;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.team-member img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.team-member h3 {
+    color: #4caf50;
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.team-member p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Hover effect */
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #4caf50 ; /* Dark blue */
+    color: #fff;
+}
+
+footer p {
+    font-size: 1.1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    .team-member {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .team {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-member {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    .project-info h2 {
+        font-size: 2em;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+    </style>
+    <header>
+        <h1>AI-based Health Care System</h1>
+        <p>Revolutionizing healthcare with Artificial Intelligence for better diagnosis and personalized treatment!</p>
+    </header>
+    
+    <section class="project-info">
+        <div class="container">
+            <h2>About Our Project</h2>
+            <p>The AI-based Health Care System uses advanced algorithms and machine learning techniques to help medical professionals in diagnosing and treating patients effectively. Our system can analyze medical data, predict diseases, suggest treatment plans, and provide personalized care recommendations, ultimately improving patient outcomes and reducing healthcare costs.</p>
+        </div>
+    </section>
+
+    <section class="team">
+        <h2>Meet the Developer Team</h2>
+        <div class="team-member">
+            <img src="{{ url_for('static', filename='assests/img.png') }}" alt="Leader">
+            <h3>Om Prakash Behera</h3>
+            <p>Full Stack Developer, UI/UX Designer</p>
+        </div>
+        <div class="team-member">
+            <img src="{{ url_for('static', filename='assests/img.png') }}" alt="Member 1">
+            <h3>Sourav Sundar Pattanayak</h3>
+            <p>Frontend Developer</p>
+        </div>
+        <div class="team-member">
+            <img src="{{ url_for('static', filename='assests/img.png') }}" alt="Member 2">
+            <h3>Ramakanta Kesh</h3>
+            <p>Backend Developer</p>
+        </div>
+        <div class="team-member">
+            <img src="{{ url_for('static', filename='assests/img.png') }}" alt="Member 3">
+            <h3>Subhranshu Behera</h3>
+            <p>UI/UX Designer</p>
+        </div>
+        <div class="team-member">
+            <img src="{{ url_for('static', filename='assests/img.png') }}" alt="Member 4">
+            <h3>Soumya Ranjan Parida</h3>
+            <p>DevOps Engineer</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 AI-based Health Care System. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
