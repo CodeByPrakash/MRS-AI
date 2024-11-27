@@ -1,4 +1,4 @@
-# Personalized-Medical-Recommendation-System-with-Machine-Learning
+# Personalized-Medical-Recommendation-System-with-Machine-Learning ❤️‍🩹
 Welcome to our cutting-edge Personalized Medical Recommendation System, a powerful platform designed to assist users in understanding and managing their health. Leveraging the capabilities of machine learning, our system analyzes user-input symptoms to predict potential diseases accurately. Here's what sets our system apart:
 
 User-Friendly Interface: Our intuitive interface allows users to input their symptoms effortlessly, creating a seamless user experience.
@@ -35,7 +35,7 @@ run - python main.py
 Step - 5
 goto browser and enter the url - http://127.0.0.1:5000/
 
-# Visit for More
+# Visit for More 🔗
 github - https://github.com/OmTheWhiteHat/
 
 instagram - https://instagram.com/absoluteprakash/
