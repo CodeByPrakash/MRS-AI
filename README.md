@@ -37,6 +37,9 @@ goto browser and enter the url - http://127.0.0.1:5000/
 
 # Visit for More
 github - https://github.com/OmTheWhiteHat/
+
 instagram - https://instagram.com/absoluteprakash/
+
 linkedin - https://linkedin.com/in/omprakash-cse/
+
 visit my portfolio - https://omprakashcse.vercel.app/
