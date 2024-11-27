@@ -142,11 +142,11 @@ body {
 .main-page #transcription {
     margin-top: 15px;
     font-size: 16px;
-    color: #555;
-    border: 1px dashed #ddd;
-    padding: 15px;
+    color: #00cc5c;
+    border: 1px solid #ddd;
+    padding: 15px 10px;
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background-color: #00ff2a33;
 }
 
 /* Submit Button Styling */
@@ -515,7 +515,8 @@ window.addEventListener("load", () =>{
             <button type="button" id="startSpeechRecognition" class="btn btn-primary animate__animated animate__fadeInUp">
                 <i class="fas fa-microphone"></i> Start Speech Recognition
             </button>
-
+             <!-- Display the transcribed text here -->
+            <div name="mysysms" id="transcription"></div>
             {% if message %}
             <p>{{ message }}</p>
             {% endif %}
@@ -523,24 +524,6 @@ window.addEventListener("load", () =>{
             <button type="submit" class="btn btn-danger rounded-5 animate__animated animate__fadeInUp">
                 <i class="fas fa-search"></i> Predict
             </button>
-            <button id="start-speech-recognition">Start Speech Recognition</button>
-
-    <div id="recognized-text"></div>
-
-    <script>
-        // Initialize SocketIO client
-        const socket = io.connect('http://localhost:5000');
-
-        // Event listener to start speech recognition
-        document.getElementById('start-speech-recognition').addEventListener('click', () => {
-            socket.emit('start_speech_recognition', { message: 'Start recognizing speech' });
-        });
-
-        // Listen for the recognized text from the server
-        socket.on('speech_recognition_result', (data) => {
-            document.getElementById('recognized-text').innerHTML = 'Recognized Text: ' + data.text;
-        });
-    </script>
         </form>
     </div>
 </div>
@@ -571,6 +554,7 @@ window.addEventListener("load", () =>{
         <button class="toggle-button btn-block animate__animated animate__bounceInUp" onclick="printContent()"><i class="fa-solid fa-print mr-2"></i> Print Details</button>
     </div>
 </div>
+
 
 {% endif %}
 
@@ -727,6 +711,13 @@ window.addEventListener("load", () =>{
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="//code.tidio.co/cicifseyz1anojtkuyzol3wniw7ypx69.js" async></script>
+    <!-- <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="AI-HCS"
+  agent-id="df9b5e5a-9a30-41c4-bf1d-4f097fcc7d96"
+  language-code="en"
+></df-messenger> -->
     <!-- <style>
 
 .container3 h1,h2 {
@@ -795,7 +786,59 @@ window.addEventListener("load", () =>{
         </div>
         {% endif %}
     </div> -->
+    {% if predicted_disease %}
+        <section class="disease-info-section" id="wiki">
+            <h2>Predicted Disease: {{ predicted_disease }}</h2>
+            
+            <!-- Description -->
+            <p class="des"><strong>Description:</strong> {{ dis_des }}</p>
+            
+            <!-- Wikipedia Summary -->
+            {% if wiki_summary %}
+                <h3>Wikipedia Summary:</h3>
+                <p>{{ wiki_summary }}</p>
+            {% endif %}
+        </section>
+    {% endif %}
+    <style>
+        ::-webkit-scrollbar
+        {
+            width: 0;
+        }
+        .disease-info-section {
+            width: calc(100% - 20px);
+            margin: 0 10px;
+            background-color: rgba(255, 255, 255, 0.295);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+        .disease-info-section .des
+        {
+            color: #218838;
+        }
+        .disease-info-section h2 {
+            color: #00cc5c;
+        }
 
+        .disease-info-section p {
+            color: #ff3300;
+            line-height: 1.6;
+        }
+
+        .disease-info-section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            color: #ffffff;
+        }
+
+        .message {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+    
 </body>
 
 </html>

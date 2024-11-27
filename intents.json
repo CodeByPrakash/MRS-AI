@@ -1,0 +1,98 @@
+{
+        "intents": {
+            "greetings": {
+                "hello": "Hello! How can I assist you? You can ask about a disease, its symptoms, or recommended medicines.",
+                "hi": "Hi there! Ask me about diseases, medicines, or symptoms for detailed information.",
+                "how are you": "I'm here to help you with medical-related queries. How can I assist you today?"
+            },
+            "disease_info": {
+                "Fungal infection": {
+                    "description": "A fungal infection is caused by fungi that can affect the skin, nails, or other body areas.",
+                    "symptoms": ["Itching", "Skin rash", "Nodal skin eruptions"],
+                    "medications": ["Clotrimazole cream", "Ketoconazole tablets"],
+                    "diet": ["Consume probiotics like yogurt", "Avoid sugary foods"],
+                    "precautions": [
+                        "Maintain personal hygiene",
+                        "Avoid sharing personal items",
+                        "Keep the affected area dry"
+                    ],
+                    "workout": ["Gentle stretching exercises"]
+                },
+                "Allergy": {
+                    "description": "An allergy occurs when your immune system reacts to a foreign substance.",
+                    "symptoms": ["Continuous sneezing", "Shivering", "Skin rash"],
+                    "medications": ["Cetirizine", "Loratadine"],
+                    "diet": ["Consume Vitamin C-rich foods", "Avoid known allergens"],
+                    "precautions": [
+                        "Stay away from allergens",
+                        "Use an air purifier",
+                        "Avoid outdoor activities during high pollen levels"
+                    ],
+                    "workout": ["Breathing exercises"]
+                },
+                "Diabetes": {
+                    "description": "Diabetes is a chronic condition that affects how your body processes blood sugar (glucose).",
+                    "symptoms": ["Increased thirst", "Frequent urination", "Fatigue"],
+                    "medications": ["Metformin", "Insulin therapy"],
+                    "diet": [
+                        "Consume fiber-rich foods like vegetables and whole grains",
+                        "Limit sugar and refined carbohydrates"
+                    ],
+                    "precautions": [
+                        "Monitor blood sugar levels regularly",
+                        "Engage in regular physical activity",
+                        "Follow a prescribed diet plan"
+                    ],
+                    "workout": ["Cardio exercises like walking or cycling"]
+                },
+                "Common Cold": {
+                    "description": "A common cold is a viral infection that affects the upper respiratory tract.",
+                    "symptoms": ["Runny nose", "Sore throat", "Cough"],
+                    "medications": ["Paracetamol", "Cough syrup"],
+                    "diet": [
+                        "Drink warm fluids like tea or soup",
+                        "Consume foods rich in Vitamin C, like oranges"
+                    ],
+                    "precautions": [
+                        "Wash hands regularly",
+                        "Avoid close contact with infected individuals",
+                        "Rest to recover faster"
+                    ],
+                    "workout": ["Light stretching or yoga"]
+                }
+            },
+            "medicine_info": {
+                "Clotrimazole cream": {
+                    "usage": "Apply to the affected area twice daily for fungal infections.",
+                    "side_effects": ["Mild irritation", "Redness at the site of application"]
+                },
+                "Cetirizine": {
+                    "usage": "Take one tablet daily for allergy relief.",
+                    "side_effects": ["Drowsiness", "Dry mouth"]
+                },
+                "Metformin": {
+                    "usage": "Take with meals to control blood sugar levels.",
+                    "side_effects": ["Nausea", "Upset stomach"]
+                },
+                "Paracetamol": {
+                    "usage": "Take one tablet every 6 hours to reduce fever and pain.",
+                    "side_effects": ["Liver issues if overdosed", "Rare allergic reactions"]
+                },
+                "Amlodipine": {
+                    "usage": "Take one tablet daily to manage high blood pressure.",
+                    "side_effects": ["Swelling in ankles", "Dizziness"]
+                }
+                
+            },
+            "symptom_info": {
+                "Itching": "Itching can be caused by allergies, insect bites, or fungal infections. Maintain good hygiene and consult a doctor if it persists.",
+                "Sneezing": "Sneezing is often caused by allergies or colds. Avoid allergens and use antihistamines if necessary.",
+                "Increased thirst": "Increased thirst is a common symptom of diabetes or dehydration. Drink plenty of water and consult a doctor if it persists.",
+                "Cough": "A cough can indicate a common cold, flu, or respiratory infection. Use cough syrup for relief and consult a doctor if it persists.",
+                "Dizziness": "Dizziness can result from low blood pressure, dehydration, or vertigo. Rest and hydrate, and consult a doctor if it persists."
+                
+            },
+            "fallback": "I'm sorry, I couldn't understand that. Please ask about a disease, medicine, or symptom for detailed information."
+        }
+    }
+    
