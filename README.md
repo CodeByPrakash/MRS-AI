@@ -27,16 +27,16 @@
 <pre>
 <code>
 # Clone the repository
-git clone https://github.com/yourusername/disease-prediction-system.git
+git clone https://github.com/OmTheWhiteHat/MRS-AI.git
 
 # Navigate into the project directory
-cd disease-prediction-system
+cd MRS-AI
 
 # Install the required dependencies
 pip install -r requirements.txt
 
 # Run the Flask app
-python app.py
+python main.py
 </code>
 </pre>
 
