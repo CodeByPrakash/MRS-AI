@@ -14,3 +14,22 @@ Privacy and Security: We prioritize user privacy and data security. Your health 
 Continuous Improvement: Our system is designed for continuous improvement. As we gather more data, the machine learning models evolve, providing increasingly accurate and relevant recommendations.
 
 Take charge of your health with our Personalized Medical Recommendation System. Your well-being is our priority, and we're dedicated to providing you with the tools and insights you need for a healthier, happier life.
+
+# RUNING
+make a virtual envirnoment
+python -m venv /path/to/new/virtual/environment 
+ex - python -m venv .venv(foldername)
+
+Step - 2
+activate the virtual envirnoment
+.venv\Scripts\activate
+
+Step - 3
+install the requirements
+pip install -r requirements.txt
+
+Step - 4
+run - python main.py
+
+Step - 5
+goto browser and enter the url - http://127.0.0.1:5000/
