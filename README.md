@@ -1,4 +1,4 @@
-<h1 align="center">🩺 Disease Prediction System 🚑</h1>
+<h1 align="center">🩺 AI based Healthcare System 🚑</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Flask-v1.1.2-blue" alt="Flask version">
@@ -7,7 +7,7 @@
 
 <h2>📚 Project Overview</h2>
 <p>
-  Welcome to the <strong>Disease Prediction System</strong>! This project uses a machine learning model to predict possible diseases based on the symptoms entered by the user. The application leverages a Support Vector Classifier (SVC) to make predictions and provide additional information such as disease description, Wikipedia summary, precautions, medications, diet plans, and recommended workouts. 🌟
+  Welcome to the <strong>AI based Healthcare System</strong>! This project uses a machine learning model to predict possible diseases based on the symptoms entered by the user. The application leverages a Support Vector Classifier (SVC) to make predictions and provide additional information such as disease description, Wikipedia summary, precautions, medications, diet plans, and recommended workouts. 🌟
 </p>
 
 <h2>⚙️ Features</h2>
