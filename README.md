@@ -81,4 +81,4 @@ python main.py
 
 <h2>💬 Contact</h2>
 <p>If you have any questions, feel free to reach out!</p>
-<p>Email: <a href="mailto:omprakashbehera.cse@gmail.com">your-email@example.com</a></p>
+<p>Email: <a href="mailto:omprakashbehera.cse@gmail.com">omprakashbehera.cse@gmail.com</a></p>
