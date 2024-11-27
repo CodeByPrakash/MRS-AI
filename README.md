@@ -48,10 +48,6 @@ python main.py
   <li>📚 <strong>Wikipedia API</strong> - To fetch Wikipedia summaries of diseases.</li>
 </ul>
 
-<h2>🌐 Live Demo</h2>
-<p>Check out the live demo of the application here:</p>
-<p><a href="https://yourwebsite.com" target="_blank">Live Demo</a> 🚀</p>
-
 <h2>🔧 How It Works</h2>
 <p>
   The user enters a list of symptoms, and the machine learning model predicts the most likely disease. After the prediction, the app displays:
