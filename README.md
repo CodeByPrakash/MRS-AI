@@ -15,7 +15,8 @@ Continuous Improvement: Our system is designed for continuous improvement. As we
 
 Take charge of your health with our Personalized Medical Recommendation System. Your well-being is our priority, and we're dedicated to providing you with the tools and insights you need for a healthier, happier life.
 
-# RUNING
+# FOR RUNNING 💻
+Step - 1
 make a virtual envirnoment
 python -m venv /path/to/new/virtual/environment 
 ex - python -m venv .venv(foldername)
