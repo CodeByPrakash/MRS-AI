@@ -539,16 +539,16 @@
 537,Cervical spondylosis, back_pain, weakness_in_limbs, neck_pain, dizziness
 538,Cervical spondylosis, weakness_in_limbs, neck_pain, dizziness, loss_of_balance
 539,Cervical spondylosis, back_pain, neck_pain, dizziness, loss_of_balance
-540,Paralysis (brain hemorrhage), vomiting, headache, weakness_of_one_body_side, altered_sensorium
-541,Paralysis (brain hemorrhage), vomiting, headache, weakness_of_one_body_side, altered_sensorium
-542,Paralysis (brain hemorrhage), headache, weakness_of_one_body_side, altered_sensorium,
+540,Paralysis (brain hemorrhage), vomiting, movement_stiffness, weakness_of_one_body_side, altered_sensorium
+541,Paralysis (brain hemorrhage), vomiting, movement_stiffness, weakness_of_one_body_side, altered_sensorium
+542,Paralysis (brain hemorrhage), movement_stiffness, weakness_of_one_body_side, altered_sensorium,
 543,Paralysis (brain hemorrhage), vomiting, weakness_of_one_body_side, altered_sensorium,
-544,Paralysis (brain hemorrhage), vomiting, headache, altered_sensorium,
-545,Paralysis (brain hemorrhage), vomiting, headache, weakness_of_one_body_side,
-546,Paralysis (brain hemorrhage), vomiting, headache, weakness_of_one_body_side, altered_sensorium
-547,Paralysis (brain hemorrhage), headache, weakness_of_one_body_side, altered_sensorium,
+544,Paralysis (brain hemorrhage), vomiting, movement_stiffness, altered_sensorium,
+545,Paralysis (brain hemorrhage), vomiting, movement_stiffness, weakness_of_one_body_side,
+546,Paralysis (brain hemorrhage), vomiting, movement_stiffness, weakness_of_one_body_side, altered_sensorium
+547,Paralysis (brain hemorrhage), movement_stiffness, weakness_of_one_body_side, altered_sensorium,
 548,Paralysis (brain hemorrhage), vomiting, weakness_of_one_body_side, altered_sensorium,
-549,Paralysis (brain hemorrhage), vomiting, headache, altered_sensorium,
+549,Paralysis (brain hemorrhage), vomiting, movement_stiffness, altered_sensorium,
 550,Jaundice,itching, vomiting, fatigue, weight_loss
 551,Jaundice,itching, vomiting, fatigue, weight_loss
 552,Jaundice, vomiting, fatigue, weight_loss, high_fever
@@ -949,16 +949,16 @@
 947,Cervical spondylosis, back_pain, weakness_in_limbs, neck_pain, dizziness
 948,Cervical spondylosis, weakness_in_limbs, neck_pain, dizziness, loss_of_balance
 949,Cervical spondylosis, back_pain, neck_pain, dizziness, loss_of_balance
-950,Paralysis (brain hemorrhage), vomiting, headache, weakness_of_one_body_side, altered_sensorium
-951,Paralysis (brain hemorrhage), vomiting, headache, weakness_of_one_body_side, altered_sensorium
+950,Paralysis (brain hemorrhage), muscle_weakness, headache, weakness_of_one_body_side, altered_sensorium
+951,Paralysis (brain hemorrhage), muscle_weakness, headache, weakness_of_one_body_side, altered_sensorium
 952,Paralysis (brain hemorrhage), headache, weakness_of_one_body_side, altered_sensorium,
-953,Paralysis (brain hemorrhage), vomiting, weakness_of_one_body_side, altered_sensorium,
-954,Paralysis (brain hemorrhage), vomiting, headache, altered_sensorium,
-955,Paralysis (brain hemorrhage), vomiting, headache, weakness_of_one_body_side,
-956,Paralysis (brain hemorrhage), vomiting, headache, weakness_of_one_body_side, altered_sensorium
+953,Paralysis (brain hemorrhage), muscle_weakness, weakness_of_one_body_side, altered_sensorium,
+954,Paralysis (brain hemorrhage), muscle_weakness, headache, altered_sensorium,
+955,Paralysis (brain hemorrhage), muscle_weakness, headache, weakness_of_one_body_side,
+956,Paralysis (brain hemorrhage), muscle_weakness, headache, weakness_of_one_body_side, altered_sensorium
 957,Paralysis (brain hemorrhage), headache, weakness_of_one_body_side, altered_sensorium,
-958,Paralysis (brain hemorrhage), vomiting, weakness_of_one_body_side, altered_sensorium,
-959,Paralysis (brain hemorrhage), vomiting, headache, altered_sensorium,
+958,Paralysis (brain hemorrhage), muscle_weakness, weakness_of_one_body_side, altered_sensorium,
+959,Paralysis (brain hemorrhage), muscle_weakness, headache, altered_sensorium,
 960,Jaundice,itching, vomiting, fatigue, weight_loss
 961,Jaundice,itching, vomiting, fatigue, weight_loss
 962,Jaundice, vomiting, fatigue, weight_loss, high_fever
@@ -1519,16 +1519,16 @@
 1517,Dimorphic hemmorhoids(piles), constipation, pain_during_bowel_movements, pain_in_anal_region, bloody_stool
 1518,Dimorphic hemmorhoids(piles), constipation, pain_during_bowel_movements, pain_in_anal_region, bloody_stool
 1519,Dimorphic hemmorhoids(piles), constipation, pain_during_bowel_movements, pain_in_anal_region, bloody_stool
-1520,Heart attack, vomiting, breathlessness, sweating, chest_pain
-1521,Heart attack, vomiting, breathlessness, sweating, chest_pain
+1520,Heart attack, chest_pain, breathlessness, sweating, chest_pain
+1521,Heart attack, chest_pain, breathlessness, sweating, chest_pain
 1522,Heart attack, breathlessness, sweating, chest_pain,
-1523,Heart attack, vomiting, sweating, chest_pain,
-1524,Heart attack, vomiting, breathlessness, chest_pain,
-1525,Heart attack, vomiting, breathlessness, sweating,
-1526,Heart attack, vomiting, breathlessness, sweating, chest_pain
+1523,Heart attack, chest_pain, sweating, chest_pain,
+1524,Heart attack, chest_pain, breathlessness, chest_pain,
+1525,Heart attack, chest_pain, breathlessness, sweating,
+1526,Heart attack, chest_pain, breathlessness, sweating, chest_pain
 1527,Heart attack, breathlessness, sweating, chest_pain,
-1528,Heart attack, vomiting, sweating, chest_pain,
-1529,Heart attack, vomiting, breathlessness, chest_pain,
+1528,Heart attack, chest_pain, sweating, chest_pain,
+1529,Heart attack, chest_pain, breathlessness, chest_pain,
 1530,Varicose veins, fatigue, cramps, bruising, obesity
 1531,Varicose veins, fatigue, cramps, bruising, obesity
 1532,Varicose veins, cramps, bruising, obesity, swollen_legs
