@@ -189,10 +189,11 @@ body {
 
 .input-group input
 {
-    background: #ffffff31;
-    color: #012411;
+    background: #00ff7726;
+    color: #009d46;
     border: none;
     border-radius: 20px;
+    font-weight: 600;
 }
 .input-group input::placeholder
 {
@@ -201,7 +202,7 @@ body {
 .input-group input:focus
 {
     background: #014d23;
-    color: #000;
+    color: #ffffff;
 
 }
 .container {
@@ -295,6 +296,11 @@ body {
 
 .toggle-button[data-bs-target="#dietsModal"] {
     background: #E5E23D; /* Yellow */
+}
+.print-btn
+{
+    background: #42009d;
+    color: #fff;
 }
 
 
@@ -433,7 +439,7 @@ body {
 }
     </style>
 </head>
-<body class="dark">
+<body>
     
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -493,15 +499,15 @@ window.addEventListener("load", () =>{
 });
         </script>
     </nav>
-
-
+    <marquee style="margin: 0 10px; padding: 10px 0 0 10px;">WELCOME TO AI BASED HEALTHCARE SYSTEM - DEVELOPED BY CSE-DEPARTMENT STUDENTS OF BEST</marquee>
+    <hr>
 
 
 <!-- main form of page -->
 <div class="main-page">
     <div class="container">
         <h1 class="text-center text-green animate__animated animate__bounce">
-            <i class="fas fa-hospital-alt"></i> AI based Healthcare
+            <i class="fas fa-hospital-alt"></i> AI based Healthcare System
         </h1>
         <form action="/predict" method="post">
             <div class="form-group">
@@ -551,7 +557,7 @@ window.addEventListener("load", () =>{
         <button class="toggle-button animate__animated animate__bounceInUp" data-bs-toggle="modal" data-bs-target="#medicationsModal">Medications</button>
         <button class="toggle-button animate__animated animate__bounceInUp" data-bs-toggle="modal" data-bs-target="#workoutsModal">Workouts</button>
         <button class="toggle-button animate__animated animate__bounceInUp" data-bs-toggle="modal" data-bs-target="#dietsModal">Diets</button>
-        <button class="toggle-button btn-block animate__animated animate__bounceInUp" onclick="printContent()"><i class="fa-solid fa-print mr-2"></i> Print Details</button>
+        <button class="toggle-button print-btn btn-block animate__animated animate__bounceInUp" onclick="printContent()"><i class="fa-solid fa-print mr-2"></i> Print Details</button>
     </div>
 </div>
 

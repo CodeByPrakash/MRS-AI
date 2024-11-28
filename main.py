@@ -120,7 +120,7 @@ def contact():
 # developer view funtion and path
 @app.route('/developer')
 def developer():
-    return render_template("developer.html")
+    return render_template("dev.html")
 
 # about view funtion and path
 @app.route('/blog')
