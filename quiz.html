@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Hero Quiz - Medical AI Center</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/quiz.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/header.css') }}">
+</head>
+<body class="quiz-page">
+
+  <!-- Navigation Header -->
+  <header class="header">
+    <nav class="nav container">
+      <a href="/" class="logo">
+        <i class="fas fa-heartbeat"></i>
+        MRS - AI
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/developer">Developer</a></li>
+        <li><a href="/quiz" class="active">Quiz</a></li>
+        <li><a href="/wiki">Wiki</a></li>
+        <li><a href="/admin_quiz">Admin</a></li>
+      </ul>
+      <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+      </div>
+    </nav>
+  </header>
+
+  <section class="quiz-hero">
+    <div class="container">
+      <div class="quiz-hero-content card fade-in-up">
+        <h1>Health Hero Challenge</h1>
+        <p>Test your first-aid and basic medicine knowledge, keep your streak alive, and climb the leaderboard. Enter your name to join the mission!</p>
+        <div class="quiz-hero-badges">
+          <span class="badge"><i class="fas fa-bolt"></i> Live Streaks</span>
+          <span class="badge"><i class="fas fa-star"></i> Bonus Points</span>
+          <span class="badge"><i class="fas fa-user-graduate"></i> Student Friendly</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="quiz-main">
+    <div class="container">
+      <div class="quiz-card card slide-in-left" aria-live="polite">
+
+        <!-- Player Setup -->
+        <section class="player-setup" id="playerSetup">
+          <h2>Ready to Begin?</h2>
+          <p>Type your name, hit start, and answer as many questions as you can in a row to boost your streak multiplier.</p>
+          <form id="playerForm" class="player-form" autocomplete="off">
+            <label for="playerName" class="form-label">Student Name</label>
+            <input type="text" id="playerName" name="playerName" class="form-control" placeholder="e.g., Dr. Aspiring" required>
+            <button type="submit" class="btn btn-primary start-button">
+              <i class="fas fa-play"></i>
+              Start the Quiz
+            </button>
+            <p id="questionLoadStatus" class="form-hint"></p>
+          </form>
+        </section>
+
+        <!-- Quiz HUD -->
+        <section class="quiz-status hidden" id="quizStatus">
+          <div class="status-card">
+            <span class="status-label">Player</span>
+            <span class="status-value" id="statusPlayer">—</span>
+          </div>
+          <div class="status-card">
+            <span class="status-label">Score</span>
+            <span class="status-value" id="statusScore">0</span>
+          </div>
+          <div class="status-card">
+            <span class="status-label">Current Streak</span>
+            <span class="status-value" id="statusStreak">0</span>
+          </div>
+          <div class="status-card">
+            <span class="status-label">Best Streak</span>
+            <span class="status-value" id="statusBest">0</span>
+          </div>
+          <div class="status-card">
+            <span class="status-label">Question</span>
+            <span class="status-value" id="statusQuestion">0 / 0</span>
+          </div>
+        </section>
+
+        <!-- Question Area -->
+        <section class="question-area hidden" id="questionArea">
+          <div class="question-meta">
+            <span class="question-difficulty" id="questionDifficulty">Starter</span>
+            <span class="question-category" id="questionCategory">General</span>
+          </div>
+          <h2 class="question-text" id="questionText">Question placeholder</h2>
+          <div class="options-grid" id="optionsGrid" role="group" aria-labelledby="questionText"></div>
+        </section>
+
+        <!-- Feedback -->
+        <section class="quiz-feedback hidden" id="quizFeedback">
+          <p id="feedbackMessage">Feedback placeholder</p>
+          <p id="feedbackFact" class="feedback-fact"></p>
+        </section>
+
+        <!-- Controls -->
+        <section class="quiz-controls hidden" id="quizControls">
+          <button class="btn btn-secondary" id="nextQuestionButton">
+            <i class="fas fa-forward"></i>
+            Next Question
+          </button>
+          <button class="btn btn-outline" id="quitButton">
+            <i class="fas fa-flag-checkered"></i>
+            Finish Game
+          </button>
+        </section>
+
+        <!-- Results -->
+        <section class="quiz-results hidden" id="quizResults">
+          <div class="results-header">
+            <i class="fas fa-trophy"></i>
+            <h2>Mission Complete!</h2>
+          </div>
+          <p class="results-summary" id="resultsSummary"></p>
+          <div class="results-stats">
+            <div class="results-card">
+              <span class="results-label">Total Score</span>
+              <span class="results-value" id="resultsScore">0</span>
+            </div>
+            <div class="results-card">
+              <span class="results-label">Best Streak</span>
+              <span class="results-value" id="resultsBestStreak">0</span>
+            </div>
+            <div class="results-card">
+              <span class="results-label">Accuracy</span>
+              <span class="results-value" id="resultsAccuracy">0%</span>
+            </div>
+          </div>
+          <button class="btn btn-primary" id="playAgainButton">
+            <i class="fas fa-redo"></i>
+            Play Again
+          </button>
+        </section>
+
+      </div>
+    </div>
+
+    <div class="card mt-lg fade-in-up" id="quizFeedbackPanel">
+      <h2 class="mb-sm">Request a Correction</h2>
+      <p class="mb-md">Spot something that needs tweaking? Share your feedback with the teaching team so we can keep the quiz bank sharp.</p>
+      <form id="quizFeedbackForm" class="grid" style="gap: 1rem;" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="feedbackCorrection">Correction or suggestion</label>
+          <textarea id="feedbackCorrection" name="correction" class="form-control" rows="3" placeholder="Describe the fix you recommend" required></textarea>
+        </div>
+        <div class="grid" style="gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+          <div class="form-group">
+            <label class="form-label" for="feedbackReference">Question reference (optional)</label>
+            <input id="feedbackReference" name="questionReference" type="text" class="form-control" placeholder="Copy a question title or ID if known">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="feedbackContact">Contact (optional)</label>
+            <input id="feedbackContact" name="contact" type="text" class="form-control" placeholder="Email or Discord handle">
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-secondary">
+            <i class="fas fa-paper-plane"></i>
+            Submit feedback
+          </button>
+          <span id="feedbackStatus" class="badge" style="display: none; margin-left: 1rem;"></span>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2024 Medical AI Health Center. Learning today for safer tomorrows.</p>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='scripts/theme-toggle.js') }}"></script>
+  <script src="{{ url_for('static', filename='scripts/quiz.js') }}" defer></script>
+</body>
+</html>

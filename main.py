@@ -1,12 +1,20 @@
-from flask import Flask, request, render_template, request
+import os
+from functools import wraps
+
+from flask import Flask, request, render_template, jsonify, session, redirect, url_for
 import numpy as np
 import pandas as pd
 import pickle
 from sklearn.svm import SVC  # Importing Support Vector Classifier from sklearn
 import json
 import wikipediaapi
+from pathlib import Path
+from datetime import datetime
 # flask app
 app = Flask(__name__, template_folder='.',static_folder="static") 
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key')
+app.config['ADMIN_USERNAME'] = os.environ.get('ADMIN_USERNAME', 'admin')
+app.config['ADMIN_PASSWORD'] = os.environ.get('ADMIN_PASSWORD', 'admin123')
 
 
 # load databasedataset===================================
@@ -20,6 +28,45 @@ diets = pd.read_csv("diets.csv")
 
 # load model===========================================
 svc = pickle.load(open('svc.pkl','rb'))
+
+
+# Quiz data storage paths
+DATA_DIR = Path("data")
+QUESTIONS_PATH = DATA_DIR / "quiz_questions.json"
+FEEDBACK_PATH = DATA_DIR / "quiz_feedback.json"
+
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def _load_json(path, default):
+    if not path.exists():
+        return default
+    try:
+        with path.open("r", encoding="utf-8") as handle:
+            return json.load(handle)
+    except json.JSONDecodeError:
+        return default
+
+
+def _write_json(path, payload):
+    with path.open("w", encoding="utf-8") as handle:
+        json.dump(payload, handle, indent=2)
+
+
+def _resolve_redirect_target(candidate, fallback='admin_quiz'):
+    target = candidate or ''
+    if target.startswith('/'):
+        return target
+    return url_for(fallback)
+
+
+def login_required(view_func):
+    @wraps(view_func)
+    def wrapped_view(**kwargs):
+        if not session.get('is_admin'):
+            return redirect(url_for('login', next=request.path))
+        return view_func(**kwargs)
+    return wrapped_view
 
 
 #============================================================
@@ -127,6 +174,130 @@ def developer():
 def blog():
     return render_template("blog.html")
 
+@app.route('/quiz')
+def quiz():
+    return render_template("quiz.html")
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if session.get('is_admin'):
+        return redirect(_resolve_redirect_target(request.args.get('next')))
+
+    error = None
+    next_url = request.args.get('next') or request.form.get('next') or ''
+
+    if request.method == 'POST':
+        username = (request.form.get('username') or '').strip()
+        password = (request.form.get('password') or '').strip()
+
+        expected_username = app.config.get('ADMIN_USERNAME', 'admin')
+        expected_password = app.config.get('ADMIN_PASSWORD', 'admin123')
+
+        if username == expected_username and password == expected_password:
+            session['is_admin'] = True
+            session['admin_username'] = username
+            return redirect(_resolve_redirect_target(next_url))
+
+        error = 'Invalid username or password. Please try again.'
+
+    return render_template('login.html', error=error, next_url=next_url)
+
+
+@app.route('/logout')
+def logout():
+    session.pop('is_admin', None)
+    session.pop('admin_username', None)
+    return redirect(url_for('login'))
+
+
+@app.route('/admin_quiz')
+def admin_quiz_page():
+    return redirect(url_for('admin_quiz'))
+
+@app.route('/api/quiz/questions')
+def api_quiz_questions():
+    questions = _load_json(QUESTIONS_PATH, [])
+    return jsonify(questions)
+
+
+@app.route('/api/quiz/feedback', methods=['POST'])
+def api_quiz_feedback():
+    payload = request.get_json(silent=True) or {}
+    correction = (payload.get('correction') or '').strip()
+
+    if not correction:
+        return jsonify({'status': 'error', 'message': 'Correction details are required.'}), 400
+
+    entry = {
+        'correction': correction,
+        'question_reference': (payload.get('questionReference') or '').strip(),
+        'contact': (payload.get('contact') or '').strip(),
+        'submitted_at': datetime.utcnow().isoformat() + 'Z'
+    }
+
+    feedback = _load_json(FEEDBACK_PATH, [])
+    feedback.append(entry)
+    _write_json(FEEDBACK_PATH, feedback)
+
+    return jsonify({'status': 'ok'})
+
+
+@app.route('/admin/quiz', methods=['GET', 'POST'])
+@login_required
+def admin_quiz():
+    message = None
+    error = None
+
+    if request.method == 'POST':
+        question = (request.form.get('question') or '').strip()
+        option_fields = [request.form.get(f'option{i}', '').strip() for i in range(1, 5)]
+        answer = (request.form.get('answer') or '').strip()
+        category = (request.form.get('category') or 'General').strip() or 'General'
+        difficulty = (request.form.get('difficulty') or 'Starter').strip() or 'Starter'
+        fact = (request.form.get('fact') or '').strip()
+
+        if not question:
+            error = 'Question text is required.'
+        elif any(not opt for opt in option_fields):
+            error = 'All option fields must be filled in.'
+        else:
+            try:
+                answer_index = int(answer)
+            except ValueError:
+                error = 'Answer must be provided as a numeric option index.'
+            else:
+                if answer_index < 0 or answer_index >= len(option_fields):
+                    error = 'Answer index must correspond to one of the options (0-3).'
+
+        if not error:
+            questions = _load_json(QUESTIONS_PATH, [])
+            questions.append({
+                'question': question,
+                'options': option_fields,
+                'answer': answer_index,
+                'category': category,
+                'difficulty': difficulty,
+                'fact': fact
+            })
+            _write_json(QUESTIONS_PATH, questions)
+            message = 'Question saved successfully.'
+
+    questions_preview = _load_json(QUESTIONS_PATH, [])[-5:]
+    return render_template('admin_quiz.html', message=message, error=error, recent_questions=questions_preview)
+
+@app.route('/wiki', methods=['GET', 'POST'])
+def wiki():
+    summary = None
+    if request.method == 'POST':
+        page_name = request.form.get('page_name')
+        wiki_wiki = wikipediaapi.Wikipedia('en-US, en-IN')
+        page = wiki_wiki.page(page_name)
+        if page.exists():
+            summary = page.summary
+        else:
+            summary = f"Page '{page_name}' not found."
+
+    return render_template("wiki.html", summary=summary)
 
 # # Function to fetch Wikipedia summary
 # def get_wikipedia_page_summary(page_name):

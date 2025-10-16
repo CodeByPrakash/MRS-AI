@@ -3,145 +3,113 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Building a Symptom-Based Disease Diagnosis Web App</title>
-  <!-- Link to Font Awesome for icons -->
+  <title>Blog - Building Disease Diagnosis Web App</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/blog.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/header.css') }}">
 </head>
 <body>
-  <style>
-    /* General Styles */
-:root {
-  --primary-green: #4caf50; /* Vibrant Green for headers */
-  --soft-green: #7fbf7f;   /* Lighter Green for backgrounds */
-  --dark-green: #2d6a3b;   /* Darker Green for footers and text */
-  --light-beige: #e8f0e1;  /* Soft Beige background for sections */
-  --white: #ffffff;        /* White background for text */
-}
 
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  color: var(--dark-green);
-  background: var(--light-beige);
-}
-
-/* Header */
-.eco-header {
-  background: var(--primary-green);
-  color: var(--white);
-  text-align: center;
-  padding: 30px 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.eco-header h1 {
-  font-size: 2.8rem;
-  margin: 0;
-  font-family: 'Georgia', serif;
-}
-
-.eco-header p {
-  font-size: 1.2rem;
-  margin-top: 10px;
-}
-
-/* Sections */
-.eco-section {
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 800px;
-  background: var(--white);
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  border-left: 5px solid var(--primary-green);
-  transform: translateY(50px);
-  opacity: 0;
-  animation: slideIn 1.5s forwards;
-}
-
-ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-ul li {
-  margin: 10px 0;
-  font-size: 1rem;
-}
-
-ul li i {
-  margin-right: 10px;
-  color: var(--primary-green);
-}
-
-/* Animations */
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animated-section:nth-child(odd) {
-  animation-delay: 0.2s;
-}
-
-.animated-section:nth-child(even) {
-  animation-delay: 0.4s;
-}
-
-/* Footer */
-.eco-footer {
-  background: var(--dark-green);
-  color: var(--white);
-  text-align: center;
-  padding: 15px 0;
-  margin-top: 30px;
-  font-size: 0.9rem;
-}
-
-  </style>
-  <header class="eco-header">
-    <h1><i class="fas fa-heartbeat"></i> Building a Symptom-Based Disease Diagnosis Web App</h1>
-    <p>Leveraging Flask and Machine Learning to Improve Healthcare Accessibility</p>
+  <!-- Navigation Header -->
+  <header class="header">
+    <nav class="nav container">
+      <a href="/" class="logo">
+        <i class="fas fa-heartbeat"></i>
+        MRS - AI
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/developer">Developer</a></li>
+        <li><a href="/quiz">Quiz</a></li>
+        <li><a href="/wiki">Wiki</a></li>
+      </ul>
+      <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+      </div>
+    </nav>
   </header>
-  <main>
-    <section id="problem" class="eco-section animated-section">
-      <h2><i class="fas fa-exclamation-circle"></i> The Problem</h2>
-      <p>The project started with the recognition of a common issue: people often experience symptoms and want quick answers about their health concerns. Differentiating between diseases, especially when symptoms overlap, can be a challenge. Our goal was to provide a quick and accurate solution for users to input their symptoms and receive potential diagnoses.</p>
-    </section>
-    <section id="solution" class="eco-section animated-section">
-      <h2><i class="fas fa-lightbulb"></i> The Solution</h2>
-      <p>We developed a web app that allows users to enter symptoms they are experiencing. The app then uses a pre-trained Decision Tree Classifier model to predict the most likely disease based on the provided symptoms. Here's how it works:</p>
-      <ul>
-        <li><strong>Symptom Input:</strong> Users input their symptoms through an intuitive interface that supports a wide range of symptoms.</li>
-        <li><strong>Machine Learning Model:</strong> We trained a Decision Tree Classifier on a dataset of symptoms and diseases to make accurate predictions.</li>
-        <li><strong>Prediction:</strong> The model provides users with predictions about the most likely disease based on the entered symptoms.</li>
-        <li><strong>Additional Information:</strong> The app provides detailed descriptions of the predicted disease, along with precautions, medications, dietary advice, and workout tips.</li>
-      </ul>
-    </section>
-    <section id="features" class="eco-section animated-section">
-      <h2><i class="fas fa-cogs"></i> Key Features</h2>
-      <ul>
-        <li><strong>User-Friendly Interface:</strong> The app boasts an intuitive design that allows users to easily input their symptoms.</li>
-        <li><strong>Accurate Predictions:</strong> The machine learning model offers precise predictions based on the symptoms entered by users.</li>
-        <li><strong>Comprehensive Information:</strong> The app not only predicts the disease but also provides additional resources like disease descriptions, medication recommendations, and wellness tips.</li>
-        <li><strong>Educational Content:</strong> The app includes informative blog posts to further educate users on various health topics.</li>
-      </ul>
-    </section>
-    <section id="conclusion" class="eco-section animated-section">
-      <h2><i class="fas fa-thumbs-up"></i> Conclusion</h2>
-      <p>Our Symptom-Based Disease Diagnosis Web App blends machine learning and healthcare to provide users with quick and reliable insights into their health. By empowering users with accurate diagnoses and comprehensive information, we aim to make healthcare more accessible and user-centric. In an era of increasing reliance on remote healthcare solutions, this project represents a significant step forward in improving health awareness and well-being for individuals worldwide.</p>
-    </section>
-  </main>
-  <footer class="eco-footer">
-    <p>© 2024 Symptom-Based Disease Diagnosis Web App. Empowering technology for a healthier future.</p>
+
+  <!-- Hero Section -->
+  <div class="blog-hero">
+    <div class="container">
+      <h1><i class="fas fa-heartbeat"></i> Building a Symptom-Based Disease Diagnosis Web App</h1>
+      <p>Leveraging Flask and Machine Learning to Improve Healthcare Accessibility</p>
+    </div>
+  </div>
+
+  <!-- Blog Content -->
+  <div class="blog-content">
+    <div class="container">
+
+      <!-- The Problem -->
+      <div class="blog-article fade-in-up">
+        <div class="article-icon">
+          <i class="fas fa-exclamation-circle"></i>
+        </div>
+        <h2 class="article-title">The Problem</h2>
+        <div class="article-content">
+          <p>The project started with the recognition of a common issue: people often experience symptoms and want quick answers about their health concerns. Differentiating between diseases, especially when symptoms overlap, can be a challenge. Our goal was to provide a quick and accurate solution for users to input their symptoms and receive potential diagnoses.</p>
+        </div>
+      </div>
+
+      <!-- The Solution -->
+      <div class="blog-article fade-in-up">
+        <div class="article-icon">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <h2 class="article-title">The Solution</h2>
+        <div class="article-content">
+          <p>We developed a web app that allows users to enter symptoms they are experiencing. The app then uses a pre-trained Decision Tree Classifier model to predict the most likely disease based on the provided symptoms. Here's how it works:</p>
+          <ul>
+            <li><strong>Symptom Input:</strong> Users input their symptoms through an intuitive interface that supports a wide range of symptoms.</li>
+            <li><strong>Machine Learning Model:</strong> We trained a Decision Tree Classifier on a dataset of symptoms and diseases to make accurate predictions.</li>
+            <li><strong>Prediction:</strong> The model provides users with predictions about the most likely disease based on the entered symptoms.</li>
+            <li><strong>Additional Information:</strong> The app provides detailed descriptions of the predicted disease, along with precautions, medications, dietary advice, and workout tips.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Key Features -->
+      <div class="blog-article fade-in-up">
+        <div class="article-icon">
+          <i class="fas fa-cogs"></i>
+        </div>
+        <h2 class="article-title">Key Features</h2>
+        <div class="article-content">
+          <ul>
+            <li><strong>User-Friendly Interface:</strong> The app boasts an intuitive design that allows users to easily input their symptoms.</li>
+            <li><strong>Accurate Predictions:</strong> The machine learning model offers precise predictions based on the symptoms entered by users.</li>
+            <li><strong>Comprehensive Information:</strong> The app not only predicts the disease but also provides additional resources like disease descriptions, medication recommendations, and wellness tips.</li>
+            <li><strong>Educational Content:</strong> The app includes informative blog posts to further educate users on various health topics.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Conclusion -->
+      <div class="blog-article fade-in-up">
+        <div class="article-icon">
+          <i class="fas fa-thumbs-up"></i>
+        </div>
+        <h2 class="article-title">Conclusion</h2>
+        <div class="article-content">
+          <p>Our Symptom-Based Disease Diagnosis Web App blends machine learning and healthcare to provide users with quick and reliable insights into their health. By empowering users with accurate diagnoses and comprehensive information, we aim to make healthcare more accessible and user-centric. In an era of increasing reliance on remote healthcare solutions, this project represents a significant step forward in improving health awareness and well-being for individuals worldwide.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2025 Symptom-Based Disease Diagnosis Web App. Empowering technology for a healthier future.</p>
+    </div>
   </footer>
+    <script src="{{ url_for('static', filename='scripts/theme-toggle.js') }}"></script>
+
 </body>
 </html>

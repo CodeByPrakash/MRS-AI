@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System Showcase - Medical AI</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <i class="fas fa-heartbeat"></i>
+          Design System Showcase
+        </h1>
+        <p class="hero-subtitle">
+          Modern, Minimalist, Game-Inspired Medical AI Interface
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+          <button class="btn btn-primary">
+            <i class="fas fa-rocket"></i>
+            Primary Button
+          </button>
+          <button class="btn btn-secondary">
+            <i class="fas fa-star"></i>
+            Secondary Button
+          </button>
+          <button class="btn btn-outline">
+            <i class="fas fa-heart"></i>
+            Outline Button
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Components Section -->
+  <div class="section">
+    <div class="container">
+      
+      <!-- Cards Grid -->
+      <h2 class="text-center mb-xl">Card Variants</h2>
+      <div class="grid grid-3 mb-xl">
+        <div class="card fade-in-up">
+          <div class="icon-box">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Default Card</h3>
+          <p>This is a standard glassmorphism card with hover effects and smooth transitions.</p>
+        </div>
+        
+        <div class="card card-primary fade-in-up">
+          <div class="icon-box">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>Primary Card</h3>
+          <p>Primary variant with green accent gradient background for important content.</p>
+        </div>
+        
+        <div class="card card-secondary fade-in-up">
+          <div class="icon-box">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>Secondary Card</h3>
+          <p>Secondary variant with purple accent for technological features.</p>
+        </div>
+        
+        <div class="card card-accent fade-in-up">
+          <div class="icon-box">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Accent Card</h3>
+          <p>Accent variant with pink gradient for highlighting special features.</p>
+        </div>
+        
+        <div class="card card-glow fade-in-up">
+          <div class="icon-box">
+            <i class="fas fa-star"></i>
+          </div>
+          <h3>Glowing Card</h3>
+          <p>Card with animated glow effect for premium or featured content.</p>
+        </div>
+        
+        <div class="card hover-lift fade-in-up">
+          <div class="icon-box">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3>Lift Card</h3>
+          <p>Card with enhanced lift effect on hover for interactive elements.</p>
+        </div>
+      </div>
+
+      <!-- Badges Section -->
+      <h2 class="text-center mb-xl">Badges & Tags</h2>
+      <div class="text-center mb-xl" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <span class="badge">Active</span>
+        <span class="badge">Machine Learning</span>
+        <span class="badge">Healthcare AI</span>
+        <span class="badge">Innovation</span>
+        <span class="badge">Medical Tech</span>
+      </div>
+
+      <!-- Form Elements -->
+      <h2 class="text-center mb-xl">Form Elements</h2>
+      <div class="card" style="max-width: 600px; margin: 0 auto;">
+        <form>
+          <div class="form-group">
+            <label class="form-label">Enter Your Name</label>
+            <input type="text" class="form-control" placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-control" placeholder="john@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your Message</label>
+            <textarea class="form-control" rows="4" placeholder="Type your message here..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <i class="fas fa-paper-plane"></i>
+            Submit Form
+          </button>
+        </form>
+      </div>
+
+      <!-- Typography -->
+      <div class="section">
+        <h2 class="text-center mb-xl">Typography</h2>
+        <div class="card" style="max-width: 800px; margin: 0 auto;">
+          <h1>Heading 1 - Large Title</h1>
+          <h2>Heading 2 - Section Title</h2>
+          <h3>Heading 3 - Subsection</h3>
+          <p>Regular paragraph text with good readability. The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p style="color: var(--text-secondary);">Secondary text color for less important information or descriptions.</p>
+          <p style="color: var(--primary);">Primary color text for highlights and important information.</p>
+        </div>
+      </div>
+
+      <!-- Grid Layouts -->
+      <div class="section">
+        <h2 class="text-center mb-xl">Grid Layouts</h2>
+        
+        <h3 class="mb-md">2-Column Grid</h3>
+        <div class="grid grid-2 mb-xl">
+          <div class="card">
+            <h4>Column 1</h4>
+            <p>Content in first column</p>
+          </div>
+          <div class="card">
+            <h4>Column 2</h4>
+            <p>Content in second column</p>
+          </div>
+        </div>
+
+        <h3 class="mb-md">3-Column Grid</h3>
+        <div class="grid grid-3 mb-xl">
+          <div class="card"><h4>Column 1</h4></div>
+          <div class="card"><h4>Column 2</h4></div>
+          <div class="card"><h4>Column 3</h4></div>
+        </div>
+
+        <h3 class="mb-md">4-Column Grid</h3>
+        <div class="grid grid-4 mb-xl">
+          <div class="card"><h4>Col 1</h4></div>
+          <div class="card"><h4>Col 2</h4></div>
+          <div class="card"><h4>Col 3</h4></div>
+          <div class="card"><h4>Col 4</h4></div>
+        </div>
+      </div>
+
+      <!-- Icons -->
+      <div class="section">
+        <h2 class="text-center mb-xl">Icon Showcase</h2>
+        <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+          <div class="icon-box">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <div class="icon-box">
+            <i class="fas fa-brain"></i>
+          </div>
+          <div class="icon-box">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <div class="icon-box">
+            <i class="fas fa-pills"></i>
+          </div>
+          <div class="icon-box">
+            <i class="fas fa-user-md"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Utility Classes -->
+      <div class="section">
+        <h2 class="text-center mb-xl">Animation Classes</h2>
+        <div class="grid grid-3">
+          <div class="card fade-in">
+            <h4>Fade In</h4>
+            <p>Simple fade animation</p>
+          </div>
+          <div class="card fade-in-up">
+            <h4>Fade In Up</h4>
+            <p>Fade with upward motion</p>
+          </div>
+          <div class="card slide-in-left">
+            <h4>Slide In Left</h4>
+            <p>Slides from the left</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2024 Medical AI Design System. Modern, Minimalist, Game-Inspired.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Admin | MRS-AI</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/header.css') }}">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <a href="/" class="logo">
+        <i class="fas fa-heartbeat"></i>
+        MRS - AI Admin
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/quiz">Quiz</a></li>
+        <li><a href="/admin/quiz" class="active">Admin</a></li>
+        {% if session.get('is_admin') %}
+        <li><a href="/logout">Logout</a></li>
+        {% else %}
+        <li><a href="/login">Login</a></li>
+        {% endif %}
+      </ul>
+      <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+      </div>
+    </nav>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="card fade-in-up">
+        <h1 class="mb-md">Manage Quiz Questions</h1>
+        <p class="mb-lg">Add new quiz questions to power the Health Hero Challenge. Provide four options and choose the correct answer using the numeric index (0-3).</p>
+
+        {% if error %}
+        <div class="alert-error mb-md">
+          <i class="fas fa-circle-exclamation"></i>
+          {{ error }}
+        </div>
+        {% endif %}
+
+        {% if message %}
+        <div class="card card-primary mb-md" style="padding: 1rem;">
+          <strong>{{ message }}</strong>
+        </div>
+        {% endif %}
+
+        <form method="post" class="grid grid-2" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="question">Question</label>
+            <textarea id="question" name="question" class="form-control" rows="3" required>{{ request.form.get('question', '') }}</textarea>
+          </div>
+
+          <div class="grid" style="gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="category">Category</label>
+              <input id="category" name="category" type="text" class="form-control" placeholder="First Aid" value="{{ request.form.get('category', '') }}">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="difficulty">Difficulty</label>
+              <input id="difficulty" name="difficulty" type="text" class="form-control" placeholder="Starter" value="{{ request.form.get('difficulty', '') }}">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="answer">Correct Option Index (0-3)</label>
+              <input id="answer" name="answer" type="number" class="form-control" min="0" max="3" value="{{ request.form.get('answer', '') }}" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fact">Supporting Fact (optional)</label>
+              <textarea id="fact" name="fact" class="form-control" rows="2">{{ request.form.get('fact', '') }}</textarea>
+            </div>
+          </div>
+
+          <div class="grid" style="gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            {% for idx in range(1, 5) %}
+            <div class="form-group">
+              <label class="form-label" for="option{{ idx }}">Option {{ idx }}</label>
+              <input id="option{{ idx }}" name="option{{ idx }}" type="text" class="form-control" value="{{ request.form.get('option' ~ idx, '') }}" required>
+            </div>
+            {% endfor %}
+          </div>
+
+          <div>
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-save"></i>
+              Save Question
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card mt-lg fade-in-up">
+        <h2 class="mb-sm">Recent Questions</h2>
+        <p class="mb-md">Preview of the latest entries stored in the quiz bank.</p>
+        {% if recent_questions %}
+        <div class="grid" style="gap: 1.5rem;">
+          {% for item in recent_questions %}
+          <div class="card" style="padding: 1rem;">
+            <h3 class="mb-sm" style="font-size: 1.1rem;">{{ item.question }}</h3>
+            <ul style="list-style: none; padding: 0; margin: 0 0 1rem 0;">
+              {% for option in item.options %}
+              <li style="margin-bottom: 0.25rem;">{{ loop.index0 }}. {{ option }}</li>
+              {% endfor %}
+            </ul>
+            <p class="mb-xs"><strong>Answer:</strong> {{ item.answer }}</p>
+            <p class="mb-xs"><strong>Category:</strong> {{ item.category }} | <strong>Difficulty:</strong> {{ item.difficulty }}</p>
+            {% if item.fact %}
+            <p class="mb-xs"><strong>Fact:</strong> {{ item.fact }}</p>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+        <p>No questions stored yet.</p>
+        {% endif %}
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2025 Medical AI Health Center. Admin tools for quiz management.</p>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='scripts/theme-toggle.js') }}"></script>
+</body>
+</html>
